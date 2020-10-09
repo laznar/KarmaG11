@@ -13,9 +13,11 @@ import androidx.navigation.findNavController
 import com.uninorte.a_202030_firebaseapplication.R
 import com.uninorte.a_202030_firebaseapplication.viewmodel.FirebaseAuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_register.*
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment(R.layout.fragment_register) {
+
 
     val firebaseAuthViewModel: FirebaseAuthViewModel by activityViewModels()
 
@@ -65,6 +67,17 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         })
 
+
+        registerButton.setOnClickListener {
+            Log.d("MyOut","Sign Up")
+            val email = emailPlainText.text.toString()
+            val password = passwordEditText.text.toString()
+            firebaseAuthViewModel.signUp(email,password)
+        }
+
+        backtoLoginButton.setOnClickListener {
+            view.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
 
     }
 }

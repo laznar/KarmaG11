@@ -7,26 +7,28 @@
     tools:context=".ui.auth.LoginFragment">
 
     <Button
-        android:id="@+id/buttonSignUpB"
+        android:id="@+id/signInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="124dp"
-        android:text="Sign Up B"
+        android:text="Sign In"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSignInB"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword"
+        app:layout_constraintVertical_bias="0.29" />
 
     <Button
-        android:id="@+id/buttonSignInB"
+        android:id="@+id/signupPassButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In B"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonSignUpB"
+        android:text="SignUp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonSignUpB"
-        app:layout_constraintTop_toTopOf="@+id/buttonSignUpB" />
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInButton"
+        app:layout_constraintVertical_bias="0.394" />
 
     <TextView
         android:id="@+id/textViewKarmaLogin"
@@ -40,37 +42,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign In A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonSignUp"
-        app:layout_constraintTop_toTopOf="@+id/buttonSignUp" />
-
-    <Button
-        android:id="@+id/buttonSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Sign Up A"
-        app:layout_constraintEnd_toStartOf="@+id/buttonSignIn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKarmaLogin" />
-
     <EditText
         android:id="@+id/loginEmail"
         android:layout_width="289dp"
         android:layout_height="56dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="96dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewKarmaLogin" />
 

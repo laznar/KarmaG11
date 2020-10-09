@@ -15,6 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_auth.*
 
 
+
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_auth) {
 
@@ -55,25 +56,19 @@ class LoginFragment : Fragment(R.layout.fragment_auth) {
 
         })
 
-        buttonSignIn.setOnClickListener {
+
+
+        signInButton.setOnClickListener {
             Log.d("MyOut","Sign In")
-            firebaseAuthViewModel.signIn("a@a.com","1234567")
+            val email = loginEmail.text.toString()
+            val password = loginPassword.text.toString()
+            firebaseAuthViewModel.signIn(email,password)
         }
 
-        buttonSignUp.setOnClickListener {
-            Log.d("MyOut","Sign Up")
-            firebaseAuthViewModel.signUp("a@a.com","1234567")
+        signupPassButton.setOnClickListener {
+            view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
-        buttonSignInB.setOnClickListener {
-            Log.d("MyOut","Sign In")
-            firebaseAuthViewModel.signIn("b@b.com","1234567")
-        }
-
-        buttonSignUpB.setOnClickListener {
-            Log.d("MyOut","Sign Up")
-            firebaseAuthViewModel.signUp("b@b.com","1234567")
-        }
 
     }
 }
