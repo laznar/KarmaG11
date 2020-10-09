@@ -10,7 +10,7 @@
         android:id="@+id/buttonSignUpB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="124dp"
         android:text="Sign Up B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonSignInB"
@@ -29,11 +29,11 @@
         app:layout_constraintTop_toTopOf="@+id/buttonSignUpB" />
 
     <TextView
-        android:id="@+id/textview_first"
+        android:id="@+id/textViewKarmaLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Firebase Login"
+        android:text="Karma Login"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +59,32 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonSignIn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewKarmaLogin" />
+
+    <EditText
+        android:id="@+id/loginEmail"
+        android:layout_width="289dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="204dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKarmaLogin" />
+
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="281dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
