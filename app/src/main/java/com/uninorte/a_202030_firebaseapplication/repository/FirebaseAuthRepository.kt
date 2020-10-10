@@ -35,7 +35,7 @@ class FirebaseAuthRepository {
                     Log.d("MyOut", "createUserWithEmail:success")
                     val user = auth.currentUser
                     if (user != null) {
-                        writeNewUser(User(user.email, user.uid))
+                        writeNewUser(User(user.email, user.uid,3))
                     }
                     userCreated.value = true;
                 } else {
