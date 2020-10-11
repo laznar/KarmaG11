@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/messagesFragment">
+    app:startDestination="@id/profileFragment">
     <activity
         android:id="@+id/authActivity"
         android:name="com.uninorte.a_202030_firebaseapplication.ui.auth.AuthActivity"
@@ -17,5 +17,32 @@
         <action
             android:id="@+id/action_messagesFragment_to_authActivity"
             app:destination="@id/authActivity" />
+        <action
+            android:id="@+id/action_messagesFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.uninorte.a_202030_firebaseapplication.ui.content.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_authActivity"
+            app:destination="@id/authActivity" />
+        <action
+            android:id="@+id/action_profileFragment_to_messagesFragment"
+            app:destination="@id/messagesFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_favorFragment"
+            app:destination="@id/favorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorFragment"
+        android:name="com.uninorte.a_202030_firebaseapplication.ui.content.FavorFragment"
+        android:label="fragment_favor"
+        tools:layout="@layout/fragment_favor" >
+        <action
+            android:id="@+id/action_favorFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

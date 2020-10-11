@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/textViewKarmaLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Firebase Messages"
+        android:layout_width="220dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="24dp"
+        android:text="Favor Board"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/profileButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,7 +27,8 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonWriteTest"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buttonWriteTest" />
+        app:layout_constraintTop_toTopOf="@+id/buttonWriteTest"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/buttonWriteTest"
@@ -52,4 +53,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewKarmaLogin" />
+
+    <Button
+        android:id="@+id/profileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:text="Home Profile"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewKarmaLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

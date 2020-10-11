@@ -10,14 +10,12 @@
         android:id="@+id/requestFavorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="216dp"
         android:text="Pedir Favor"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.824"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintVertical_bias="0.629" />
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupButton" />
 
     <TextView
         android:id="@+id/solicitarTextView"
@@ -54,90 +52,57 @@
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/solicitarTextView" />
 
-    <RadioButton
-        android:id="@+id/fotocopiasButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="Sacar Fotocopias"
-        app:layout_constraintBottom_toBottomOf="@+id/codigoTextNumber"
-        app:layout_constraintEnd_toStartOf="@+id/codigoTextNumber"
-        app:layout_constraintStart_toStartOf="@+id/radioButton2"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.0" />
-
     <EditText
         android:id="@+id/codigoTextNumber"
         android:layout_width="136dp"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Código"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/objetoPlainText"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="@+id/objetoPlainText"
-        tools:layout_editor_absoluteY="236dp" />
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="142dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="76dp"
-        android:text="Comprar en KM5"
-        app:layout_constraintBottom_toTopOf="@+id/radioButton3"
-        app:layout_constraintEnd_toEndOf="@+id/fotocopiasButton"
-        app:layout_constraintStart_toStartOf="@+id/fotocopiasButton"
-        app:layout_constraintTop_toBottomOf="@+id/fotocopiasButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupButton"
+        app:layout_constraintVertical_bias="0.076" />
 
     <EditText
         android:id="@+id/objetoPlainText"
         android:layout_width="161dp"
         android:layout_height="46dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Objeto"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/cantidadTextNumber"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/cantidadTextNumber"
-        tools:layout_editor_absoluteY="327dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupButton" />
 
     <EditText
         android:id="@+id/cantidadTextNumber"
-        android:layout_width="79dp"
-        android:layout_height="41dp"
+        android:layout_width="111dp"
+        android:layout_height="54dp"
         android:ems="10"
         android:hint="Cantidad"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-        app:layout_constraintHorizontal_bias="0.403"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
-        tools:layout_editor_absoluteY="373dp" />
-
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
-        android:text="Domicilio en Puerta 7"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/radioButton2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/radioButton2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codigoTextNumber" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="208dp"
         android:layout_height="85dp"
-        android:layout_marginBottom="196dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Detalles"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupButton" />
 
     <TextView
         android:id="@+id/textView10"
@@ -152,15 +117,55 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/favorstateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:text="-"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/requestFavorButton"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupButton"
+        app:layout_constraintVertical_bias="0.535" />
+
+    <RadioGroup
+        android:id="@+id/radiogroupButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <RadioButton
+            android:id="@+id/fotocopiasButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sacar Fotocopias" />
+
+        <RadioButton
+            android:id="@+id/comprarkm5Button"
+            android:layout_width="142dp"
+            android:layout_height="29dp"
+            android:text="Comprar en KM5" />
+
+        <RadioButton
+            android:id="@+id/domicilioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Domicilio en Puerta 7" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

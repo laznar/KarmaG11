@@ -59,5 +59,9 @@ class MessagesFragment : Fragment(R.layout.fragment_messages) {
             firebaseAuthViewModel.logOut()
             view.findNavController().navigate(R.id.action_messagesFragment_to_authActivity)
         }
+
+        profileButton.setOnClickListener {
+            view.findNavController().navigate(R.id.action_messagesFragment_to_profileFragment)
+        }
     }
 }

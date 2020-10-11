@@ -21,10 +21,11 @@ class LoginFragment : Fragment(R.layout.fragment_auth) {
 
     val firebaseAuthViewModel: FirebaseAuthViewModel by activityViewModels()
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("MyOut","LoginFragment onViewCreated")
-        firebaseAuthViewModel.userCreated().observe(getViewLifecycleOwner(), Observer { status ->
+        firebaseAuthViewModel.userCreated().observe(viewLifecycleOwner, Observer { status ->
             if (status == true){
                 Toast.makeText(
                     this.requireContext(), "Authentication Ok.",
@@ -39,7 +40,7 @@ class LoginFragment : Fragment(R.layout.fragment_auth) {
 
         })
 
-        firebaseAuthViewModel.logged().observe(getViewLifecycleOwner(), Observer { uid ->
+        firebaseAuthViewModel.logged().observe(viewLifecycleOwner, Observer { uid ->
             Log.d("MyOut","LoginFragment logged with "+uid)
             if (uid != ""){
                 Toast.makeText(

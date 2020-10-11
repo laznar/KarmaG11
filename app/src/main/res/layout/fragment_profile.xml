@@ -35,7 +35,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="28dp"
         android:text="Puntos de Karma"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,8 +47,8 @@
         android:id="@+id/puntosTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="3"
+        android:layout_marginTop="28dp"
+        android:text="0"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.551"
@@ -57,8 +57,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="375dp"
-        android:layout_height="355dp"
+        android:layout_width="284dp"
+        android:layout_height="170dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.059" />
 
     <Button
-        android:id="@+id/listButton"
+        android:id="@+id/favorboardButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Listado de  favores"
@@ -76,7 +76,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.257" />
 
     <Button
         android:id="@+id/requestButton"
@@ -86,9 +86,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/listButton"
+        app:layout_constraintStart_toEndOf="@+id/favorboardButton"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.257" />
 
     <Button
         android:id="@+id/logoutButton"
@@ -101,6 +101,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.706" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
