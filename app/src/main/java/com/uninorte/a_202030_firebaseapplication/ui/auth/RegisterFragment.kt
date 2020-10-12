@@ -36,6 +36,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("MyOut","LoginFragment onViewCreated")
+
         firebaseAuthViewModel.userCreated().observe(getViewLifecycleOwner(), Observer { status ->
             if (status == true){
                 Toast.makeText(
@@ -71,8 +72,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         registerButton.setOnClickListener {
             Log.d("MyOut","Sign Up")
             val email = emailPlainText.text.toString()
+            val username = usernamePlainText.text.toString()
             val password = passwordEditText.text.toString()
-            firebaseAuthViewModel.signUp(email,password)
+            firebaseAuthViewModel.signUp(email,password,username)
         }
 
         backtoLoginButton.setOnClickListener {

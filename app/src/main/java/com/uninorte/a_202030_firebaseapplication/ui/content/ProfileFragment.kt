@@ -12,9 +12,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.auth.User
+import com.google.firebase.ktx.Firebase
 import com.uninorte.a_202030_firebaseapplication.R
 import com.uninorte.a_202030_firebaseapplication.viewmodel.FirebaseAuthViewModel
 import com.uninorte.a_202030_firebaseapplication.viewmodel.FirebaseRealTimeDBViewModel
@@ -26,13 +28,13 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     val firebaseAuthViewModel: FirebaseAuthViewModel by activityViewModels()
-    val firebaseRealTimeDBViewModelViewModel : FirebaseRealTimeDBViewModel by activityViewModels()
     private val profileViewModel: ProfileViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
 
+    init {
+        auth = Firebase.auth
 
-
-
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,25 +51,28 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var user = auth.currentUser
-        var nombreUsuario : String? = ""
-        var emailUser : String? = user?.email
+        var currentUser = auth.currentUser
+        var username : String? = ""
+        var emailUser : String? = currentUser?.email!!
 
-        profileViewModel.getUser().observe(viewLifecycleOwner, Observer {
+
+        /*profileViewModel.getUsername().observe(viewLifecycleOwner, Observer {
             for(usuarios in it){
                 if(usuarios.email == emailUser){
-                    nombreUsuario = usuarios.key
+                    username = usuarios.username
+                    usernameTextView.text = username
                 }
             }
         })
+
 
         profileViewModel.getKarma().observe(viewLifecycleOwner, Observer {
             for (karma in it){
-                if(karma.user == nombreUsuario){
-                    view.findViewById<TextView>(R.id.puntosTextView).text = karma.points
+                if(karma.username == username){
+                    puntosTextView.text = karma.points.toString()
                 }
             }
-        })
+        })*/
 
 
         requestButton.setOnClickListener{

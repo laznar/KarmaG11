@@ -6,7 +6,8 @@ import com.uninorte.a_202030_firebaseapplication.repository.ProfileRepository
 class ProfileViewModel: ViewModel() {
     private val repository = ProfileRepository()
     fun getKarma()=repository.getKarma()
-    fun getUser()=repository.getUser()
+    fun getUsername()=repository.getUsername()
+
 
 
 }

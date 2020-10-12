@@ -21,7 +21,7 @@
         android:id="@+id/textView"
         android:layout_width="249dp"
         android:layout_height="46dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="36dp"
         android:text="Sign Up: Karma"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -36,9 +36,8 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/passwordEditText"
+        app:layout_constraintBottom_toTopOf="@+id/usernamePlainText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -51,9 +50,8 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailPlainText" />
+        app:layout_constraintTop_toBottomOf="@+id/usernamePlainText" />
 
     <Button
         android:id="@+id/backtoLoginButton"
@@ -65,5 +63,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+
+    <EditText
+        android:id="@+id/usernamePlainText"
+        android:layout_width="302dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/passwordEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailPlainText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

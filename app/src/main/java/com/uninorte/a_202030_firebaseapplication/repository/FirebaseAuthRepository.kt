@@ -6,6 +6,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.uninorte.a_202030_firebaseapplication.model.Karma
 import com.uninorte.a_202030_firebaseapplication.model.Message
 import com.uninorte.a_202030_firebaseapplication.model.User
 import dagger.Provides
@@ -27,7 +28,7 @@ class FirebaseAuthRepository {
         database.child("users").push().setValue(user)
     }
 
-    fun signUp(email: String, password : String){
+    fun signUp(email: String, password : String, username: String){
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener{ task ->
                 if (task.isSuccessful) {
@@ -35,7 +36,9 @@ class FirebaseAuthRepository {
                     Log.d("MyOut", "createUserWithEmail:success")
                     val user = auth.currentUser
                     if (user != null) {
-                        writeNewUser(User(user.email, user.uid,3))
+                        writeNewUser(User(user.email, user.uid,username))
+                        var karma = Karma(username,5)
+                        database.child("karmas").push().setValue(karma)
                     }
                     userCreated.value = true;
                 } else {

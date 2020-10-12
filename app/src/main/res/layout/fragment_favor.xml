@@ -10,12 +10,13 @@
         android:id="@+id/requestFavorButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
         android:text="Pedir Favor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radiogroupButton" />
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toEndOf="@+id/homeButton"
+        app:layout_constraintTop_toBottomOf="@+id/radiogroupButton"
+        app:layout_constraintVertical_bias="0.662" />
 
     <TextView
         android:id="@+id/solicitarTextView"
@@ -132,13 +133,12 @@
         android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
         android:text="Home"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/requestFavorButton"
-        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radiogroupButton"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.662" />
 
     <RadioGroup
         android:id="@+id/radiogroupButton"

@@ -36,7 +36,6 @@ class MessagesFragment : Fragment(R.layout.fragment_messages) {
             Log.d("MyOut","MessagesFragment logged with "+uid)
             userUid = uid
             adapter.uid = uid
-
         })
 
         firebaseRealTimeDBViewModelViewModel.ldMessageList.observe(getViewLifecycleOwner(), Observer { lista ->
@@ -48,10 +47,11 @@ class MessagesFragment : Fragment(R.layout.fragment_messages) {
         })
 
         buttonWriteTest.setOnClickListener {
+            val input = chatTextMultiline.text.toString()
             userUid = firebaseAuthViewModel.logged().value!!
             Log.d("MyOut","Writing message for user <"+userUid+">")
             firebaseRealTimeDBViewModelViewModel.writeNewMessage(
-                Message((0..100).random(),"Hola", userUid)
+                Message((0..100).random(),input, userUid)
             )
         }
 

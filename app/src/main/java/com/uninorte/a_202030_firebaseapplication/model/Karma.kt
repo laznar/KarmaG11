@@ -4,6 +4,6 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class Karma (
-    val user: String? = "",
-    val points: String? = ""
+    val username : String? = "",
+    val points: Int?
 )
