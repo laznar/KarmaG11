@@ -31,11 +31,7 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val radioGroup = (R.id.radiogroupButton) as RadioGroup
-
-
-
-
+        //val radioGroup = (R.id.radiogroupButton) as RadioGroup
         /*radiogroupButton.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, i ->})
             if(i == R.id.fotocopiasButton){
             hacerVisible(codigoTextNumber)
@@ -61,12 +57,7 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
             view.findNavController().navigate(R.id.action_favorFragment_to_profileFragment)
         }
 
-        requestFavorButton.setOnClickListener{
-            //codigoTextNumber.setVisibility(View.INVISIBLE)
-            //objetoPlainText.setVisibility(View.INVISIBLE)
-            //cantidadTextNumber.setVisibility(View.INVISIBLE)
-            //editTextTextMultiLine.setVisibility(View.INVISIBLE)
-        }
+
 
     }
 }
