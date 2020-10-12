@@ -50,11 +50,20 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var user = auth.currentUser
+        var nombreUsuario : String? = ""
         var emailUser : String? = user?.email
+
+        profileViewModel.getUser().observe(viewLifecycleOwner, Observer {
+            for(usuarios in it){
+                if(usuarios.email == emailUser){
+                    nombreUsuario = usuarios.key
+                }
+            }
+        })
 
         profileViewModel.getKarma().observe(viewLifecycleOwner, Observer {
             for (karma in it){
-                if(karma.email == emailUser){
+                if(karma.user == nombreUsuario){
                     view.findViewById<TextView>(R.id.puntosTextView).text = karma.points
                 }
             }
