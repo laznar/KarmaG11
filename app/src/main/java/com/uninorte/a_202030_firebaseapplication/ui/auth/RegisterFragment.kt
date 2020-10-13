@@ -73,8 +73,8 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             Log.d("MyOut","Sign Up")
             val email = emailPlainText.text.toString()
             val username = usernamePlainText.text.toString()
-            val password = passwordEditText.text.toString()
-            firebaseAuthViewModel.signUp(email,password,username)
+            val key = passwordEditText.text.toString()
+            firebaseAuthViewModel.signUp(email,key,username)
         }
 
         backtoLoginButton.setOnClickListener {

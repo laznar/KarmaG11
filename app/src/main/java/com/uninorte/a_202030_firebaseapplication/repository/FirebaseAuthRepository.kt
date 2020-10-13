@@ -1,16 +1,13 @@
 package com.uninorte.a_202030_firebaseapplication.repository
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.uninorte.a_202030_firebaseapplication.model.Karma
-import com.uninorte.a_202030_firebaseapplication.model.Message
 import com.uninorte.a_202030_firebaseapplication.model.User
-import dagger.Provides
-import javax.inject.Singleton
 
 class FirebaseAuthRepository {
 
@@ -35,10 +32,11 @@ class FirebaseAuthRepository {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("MyOut", "createUserWithEmail:success")
                     val user = auth.currentUser
+                    val uid = user!!.uid
+                    val dbRef = database.child("users").child(uid)
                     if (user != null) {
-                        writeNewUser(User(user.email, user.uid,username))
-                        var karma = Karma(username,5)
-                        database.child("karmas").push().setValue(karma)
+                        dbRef.setValue(User(user.email, user.uid,username,5))
+                        //writeNewUser(User(user.email, user.uid,username,5))
                     }
                     userCreated.value = true;
                 } else {

@@ -54,8 +54,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         var currentUser = auth.currentUser
         var username : String? = ""
         var emailUser : String? = currentUser?.email!!
-
-
+        
         /*profileViewModel.getUsername().observe(viewLifecycleOwner, Observer {
             for(usuarios in it){
                 if(usuarios.email == emailUser){
