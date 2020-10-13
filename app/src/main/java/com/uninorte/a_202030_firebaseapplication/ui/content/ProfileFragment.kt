@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +19,7 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.auth.User
 import com.google.firebase.ktx.Firebase
 import com.uninorte.a_202030_firebaseapplication.R
+import com.uninorte.a_202030_firebaseapplication.utils.usersNode
 import com.uninorte.a_202030_firebaseapplication.viewmodel.FirebaseAuthViewModel
 import com.uninorte.a_202030_firebaseapplication.viewmodel.FirebaseRealTimeDBViewModel
 import com.uninorte.a_202030_firebaseapplication.viewmodel.ProfileViewModel
@@ -28,6 +30,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     val firebaseAuthViewModel: FirebaseAuthViewModel by activityViewModels()
+    val firebaseRealTimeDBViewModelViewModel: FirebaseRealTimeDBViewModel by activityViewModels()
     private val profileViewModel: ProfileViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
 
@@ -54,7 +57,54 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         var currentUser = auth.currentUser
         var username : String? = ""
         var emailUser : String? = currentUser?.email!!
-        
+        val profileResponse = MutableLiveData<String>()
+        val karmaResponse = MutableLiveData<String>()
+
+        fun getProfileData() {
+            // [favor.user] tells me who created the current favor, get the username of that user and display it
+            val auth = FirebaseAuth.getInstance()
+            val user = auth.currentUser!!.uid
+            val databaseReference =
+                FirebaseDatabase.getInstance().getReference(usersNode).child(user)
+            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val username = snapshot.child("username").value.toString()
+                    val karma = snapshot.child("karma").value.toString()
+                    Log.i("TAG",username.toString())
+                    Log.i("TAG",karma.toString())
+                    profileResponse.value = username
+                    karmaResponse.value = karma
+                    puntosTextView.text = karma
+                    usernameTextView.text = username
+
+
+                }
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+        }
+
+        getProfileData()
+
+
+        /*fun currentUserReference() = firebaseRealTimeDBViewModelViewModel.database.child("users").child(auth.currentUser!!.uid)
+        currentUserReference().addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.hasChildren()) {
+                    val karma = snapshot.child("karma").getValue(User::class.java)
+                    puntosTextView.text = karma.toString()
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("onCancelled: ", TAG)
+            }
+        })*/
+
+
+
+
+
+
         /*profileViewModel.getUsername().observe(viewLifecycleOwner, Observer {
             for(usuarios in it){
                 if(usuarios.email == emailUser){
