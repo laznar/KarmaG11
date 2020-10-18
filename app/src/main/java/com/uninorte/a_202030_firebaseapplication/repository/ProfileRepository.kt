@@ -13,6 +13,8 @@ import com.google.firebase.ktx.Firebase
 import com.uninorte.a_202030_firebaseapplication.model.Karma
 import com.uninorte.a_202030_firebaseapplication.model.User
 import com.uninorte.a_202030_firebaseapplication.utils.PreferenceProvider
+import com.uninorte.a_202030_firebaseapplication.utils.karmaNode
+import com.uninorte.a_202030_firebaseapplication.utils.usernameNode
 import com.uninorte.a_202030_firebaseapplication.utils.usersNode
 
 class ProfileRepository {
@@ -30,7 +32,6 @@ class ProfileRepository {
     }
 
 
-
     fun getProfileData() {
         // [favor.user] tells me who created the current favor, get the username of that user and display it
         val auth = FirebaseAuth.getInstance()
@@ -39,8 +40,8 @@ class ProfileRepository {
             FirebaseDatabase.getInstance().getReference(usersNode).child(user)
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val username = snapshot.child("username").value.toString()
-                val karma = snapshot.child("score").value.toString()
+                val username = snapshot.child(usernameNode).value.toString()
+                val karma = snapshot.child(karmaNode).value.toString()
                 profileResponse.value = username
                 karmaResponse.value = karma
             }

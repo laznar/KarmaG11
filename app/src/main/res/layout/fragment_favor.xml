@@ -37,13 +37,13 @@
         android:layout_marginTop="48dp"
         android:text="Karmas disponibles"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintEnd_toStartOf="@+id/karmapoints"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/solicitarTextView" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/karmapoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -60,6 +60,7 @@
         android:ems="10"
         android:hint="Código"
         android:inputType="number"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -75,6 +76,7 @@
         android:ems="10"
         android:hint="Objeto"
         android:inputType="textPersonName"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.548"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,12 +89,13 @@
         android:ems="10"
         android:hint="Cantidad"
         android:inputType="number"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/codigoTextNumber" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/detallesMultiLine"
         android:layout_width="208dp"
         android:layout_height="85dp"
         android:layout_marginTop="40dp"
@@ -100,6 +103,7 @@
         android:gravity="start|top"
         android:hint="Detalles"
         android:inputType="textMultiLine"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +131,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/karmapoints" />
 
     <Button
         android:id="@+id/homeButton"
