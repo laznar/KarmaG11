@@ -22,9 +22,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.uninorte.a_202030_firebaseapplication.R
-import com.uninorte.a_202030_firebaseapplication.utils.karmaNode
-import com.uninorte.a_202030_firebaseapplication.utils.usernameNode
-import com.uninorte.a_202030_firebaseapplication.utils.usersNode
+import com.uninorte.a_202030_firebaseapplication.utils.*
 import com.uninorte.a_202030_firebaseapplication.viewmodel.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_favor.*
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -34,18 +32,13 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
 
     private lateinit var auth: FirebaseAuth
     private val profileViewModel: ProfileViewModel by activityViewModels()
-    private var puntos : Int = 0
+    private var puntos: Int = 0
 
     init {
         auth = Firebase.auth
-
     }
 
     var currentUser = auth.currentUser
-
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,31 +61,51 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
 
 
         profileViewModel.getKarmaData().observe(viewLifecycleOwner, Observer { karma ->
-            Log.d("MyOut","FavorFragment karma is "+karma)
+            Log.d("MyOut", "FavorFragment karma is " + karma)
             karmapoints.text = karma
         })
 
-        /*fun getKarmaData() {
-            // [favor.user] tells me who created the current favor, get the username of that user and display it
-            val auth = FirebaseAuth.getInstance()
-            val user = auth.currentUser!!.uid
-            val databaseReference =
-                FirebaseDatabase.getInstance().getReference(usersNode).child(user)
-            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val username = snapshot.child(usernameNode).value.toString()
-                    val karma = snapshot.child(karmaNode).value.toString()
-                    Log.i("TAG",username.toString())
-                    Log.i("TAG",karma.toString())
-                    karmaResponse.value = karma
-                    puntosTextView.text = karma
-                }
-
-                override fun onCancelled(error: DatabaseError) {}
-            })
+        radiogroupButton.setOnCheckedChangeListener { group, checkedID ->
+            if(checkedID == R.id.fotocopiasButton){
+                hacerVisible(codigoTextNumber)
+                hacerInvisible(objetoPlainText)
+                hacerInvisible(cantidadTextNumber)
+                hacerInvisible(detallesMultiLine)
+            }
+            if(checkedID == R.id.comprarkm5Button){
+                hacerInvisible(codigoTextNumber)
+                hacerVisible(objetoPlainText)
+                hacerVisible(cantidadTextNumber)
+                hacerInvisible(detallesMultiLine)
+            }
+            if(checkedID == R.id.domicilioButton){
+                hacerInvisible(codigoTextNumber)
+                hacerInvisible(objetoPlainText)
+                hacerInvisible(cantidadTextNumber)
+                hacerVisible(detallesMultiLine)
+            }
         }
+    /*fun getKarmaData() {
+        // [favor.user] tells me who created the current favor, get the username of that user and display it
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser!!.uid
+        val databaseReference =
+            FirebaseDatabase.getInstance().getReference(usersNode).child(user)
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val username = snapshot.child(usernameNode).value.toString()
+                val karma = snapshot.child(karmaNode).value.toString()
+                Log.i("TAG",username.toString())
+                Log.i("TAG",karma.toString())
+                karmaResponse.value = karma
+                puntosTextView.text = karma
+            }
 
-        getKarmaData()*/
+            override fun onCancelled(error: DatabaseError) {}
+        })
+    }
+
+    getKarmaData()*/
 
 
         /*val radioButtonID: Int = radiogroupButton.checkedRadioButtonId
@@ -136,8 +149,6 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
                 Toast.makeText(this.requireContext(), "Debe de tener 2 o más de karma", Toast.LENGTH_SHORT).show()
             }
         }
-
-
 
     }
 }
