@@ -8,6 +8,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.uninorte.a_202030_firebaseapplication.model.User
+import com.uninorte.a_202030_firebaseapplication.utils.usersNode
 
 class FirebaseAuthRepository {
 
@@ -22,7 +23,7 @@ class FirebaseAuthRepository {
     }
 
     fun writeNewUser(user: User){
-        database.child("users").push().setValue(user)
+        database.child(usersNode).push().setValue(user)
     }
 
     fun signUp(email: String, password : String, username: String){
@@ -33,7 +34,7 @@ class FirebaseAuthRepository {
                     Log.d("MyOut", "createUserWithEmail:success")
                     val user = auth.currentUser
                     val uid = user!!.uid
-                    val dbRef = database.child("users").child(uid)
+                    val dbRef = database.child(usersNode).child(uid)
                     if (user != null) {
                         dbRef.setValue(User(user.email, user.uid,username,5))
                         //writeNewUser(User(user.email, user.uid,username,5))

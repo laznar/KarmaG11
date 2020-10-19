@@ -23,6 +23,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.uninorte.a_202030_firebaseapplication.R
 import com.uninorte.a_202030_firebaseapplication.utils.*
+import com.uninorte.a_202030_firebaseapplication.viewmodel.FavorViewModel
 import com.uninorte.a_202030_firebaseapplication.viewmodel.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_favor.*
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -32,7 +33,9 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
 
     private lateinit var auth: FirebaseAuth
     private val profileViewModel: ProfileViewModel by activityViewModels()
+    private val favorViewModel: FavorViewModel by activityViewModels()
     private var puntos: Int = 0
+    private var type: String = ""
 
     init {
         auth = Firebase.auth
@@ -144,7 +147,28 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
             profileViewModel.getProfileData()
             puntos = Integer.parseInt(karmapoints.text.toString())
             if(puntos>=2){
-                Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
+                radiogroupButton.setOnCheckedChangeListener { group, checkedID ->
+                    if(checkedID == R.id.fotocopiasButton){
+                        type = sacarfotocopias
+                        val codigo = codigoTextNumber.text.toString()
+                        favorViewModel.createFavor(type,"El código de estudiante es: "+codigo)
+                        Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
+                    }
+                    if(checkedID == R.id.comprarkm5Button){
+                        type = comprarkm5
+                        val objeto = objetoPlainText.text.toString()
+                        val cantidad = cantidadTextNumber.text.toString()
+                        favorViewModel.createFavor(type,"Se solicita comprar "+objeto+" x "+cantidad)
+                        Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
+                    }
+                    if(checkedID == R.id.domicilioButton){
+                        type = domiciliop7
+                        val details = detallesMultiLine.text.toString()
+                        favorViewModel.createFavor(type,details)
+                        Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
+                    }
+                    Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
+                }
             }else{
                 Toast.makeText(this.requireContext(), "Debe de tener 2 o más de karma", Toast.LENGTH_SHORT).show()
             }

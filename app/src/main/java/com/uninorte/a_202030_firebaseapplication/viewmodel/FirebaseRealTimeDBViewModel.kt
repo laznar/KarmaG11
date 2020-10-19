@@ -45,7 +45,6 @@ class FirebaseRealTimeDBViewModel : ViewModel(){
             }
         }
         database.child("messages").addValueEventListener(postListener)
-
     }
 
   /*  fun writeTest(){
