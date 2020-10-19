@@ -1,4 +1,4 @@
-package com.uninorte.a_202030_firebaseapplication.ui.content
+package com.uninorte.a_202030_firebaseapplication.adapter
 
 import android.graphics.Color
 import android.view.Gravity

@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_profileFragment_to_favorFragment"
             app:destination="@id/favorFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_favorListFragment"
+            app:destination="@id/favorListFragment" />
     </fragment>
     <fragment
         android:id="@+id/favorFragment"
@@ -43,6 +46,18 @@
         tools:layout="@layout/fragment_favor" >
         <action
             android:id="@+id/action_favorFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorListFragment"
+        android:name="com.uninorte.a_202030_firebaseapplication.ui.content.FavorListFragment"
+        android:label="fragment_favor_list"
+        tools:layout="@layout/fragment_favor_list" >
+        <action
+            android:id="@+id/action_favorListFragment_to_messagesFragment"
+            app:destination="@id/messagesFragment" />
+        <action
+            android:id="@+id/action_favorListFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

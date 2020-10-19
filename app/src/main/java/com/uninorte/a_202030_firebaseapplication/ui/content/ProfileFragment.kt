@@ -76,73 +76,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             usernameTextView.text = username
         })
 
-
-        /*fun getProfileData() {
-            // [favor.user] tells me who created the current favor, get the username of that user and display it
-            val auth = FirebaseAuth.getInstance()
-            val user = auth.currentUser!!.uid
-            val databaseReference =
-                FirebaseDatabase.getInstance().getReference(usersNode).child(user)
-            databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val username = snapshot.child(usernameNode).value.toString()
-                    val karma = snapshot.child(karmaNode).value.toString()
-                    Log.i("TAG",username.toString())
-                    Log.i("TAG",karma.toString())
-                    profileResponse.value = username
-                    karmaResponse.value = karma
-                    puntosTextView.text = karma
-                    usernameTextView.text = username
-                }
-
-                override fun onCancelled(error: DatabaseError) {}
-            })
-        }
-
-        getProfileData()*/
-
-
-
-
-
-
-        /*fun currentUserReference() = firebaseRealTimeDBViewModelViewModel.database.child("users").child(auth.currentUser!!.uid)
-        currentUserReference().addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.hasChildren()) {
-                    val karma = snapshot.child("karma").getValue(User::class.java)
-                    puntosTextView.text = karma.toString()
-                }
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("onCancelled: ", TAG)
-            }
-        })*/
-
-
-
-
-
-
-        /*profileViewModel.getUsername().observe(viewLifecycleOwner, Observer {
-            for(usuarios in it){
-                if(usuarios.email == emailUser){
-                    username = usuarios.username
-                    usernameTextView.text = username
-                }
-            }
-        })
-
-
-        profileViewModel.getKarma().observe(viewLifecycleOwner, Observer {
-            for (karma in it){
-                if(karma.username == username){
-                    puntosTextView.text = karma.points.toString()
-                }
-            }
-        })*/
-
-
         requestButton.setOnClickListener{
             view.findNavController().navigate(R.id.action_profileFragment_to_favorFragment)
         }
@@ -153,7 +86,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
 
         favorboardButton.setOnClickListener {
-            view.findNavController().navigate(R.id.action_profileFragment_to_messagesFragment)
+            view.findNavController().navigate(R.id.action_profileFragment_to_favorListFragment)
         }
     }
 }

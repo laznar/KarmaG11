@@ -4,6 +4,7 @@ const val usersNode = "users"
 const val usernameNode = "username"
 const val karmaNode = "karma"
 const val favorsNode = "favors"
+const val messagesNode = "messages"
 
 
 const val init = "iniciado"

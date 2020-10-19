@@ -9,6 +9,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.uninorte.a_202030_firebaseapplication.model.Message
+import com.uninorte.a_202030_firebaseapplication.utils.messagesNode
 
 class FirebaseRealTimeDBViewModel : ViewModel(){
     val database = Firebase.database.reference
@@ -21,7 +22,7 @@ class FirebaseRealTimeDBViewModel : ViewModel(){
     }
 
     fun writeNewMessage(message: Message){
-        database.child("messages").push().setValue(message)
+        database.child(messagesNode).push().setValue(message)
     }
 
     fun getValues(){
@@ -44,7 +45,7 @@ class FirebaseRealTimeDBViewModel : ViewModel(){
                 // ...
             }
         }
-        database.child("messages").addValueEventListener(postListener)
+        database.child(messagesNode).addValueEventListener(postListener)
     }
 
   /*  fun writeTest(){

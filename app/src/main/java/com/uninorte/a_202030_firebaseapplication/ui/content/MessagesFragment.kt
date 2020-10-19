@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uninorte.a_202030_firebaseapplication.R
+import com.uninorte.a_202030_firebaseapplication.adapter.MessagesAdapter
 import com.uninorte.a_202030_firebaseapplication.model.Message
 import com.uninorte.a_202030_firebaseapplication.viewmodel.FirebaseAuthViewModel
 import com.uninorte.a_202030_firebaseapplication.viewmodel.FirebaseRealTimeDBViewModel
@@ -64,4 +65,5 @@ class MessagesFragment : Fragment(R.layout.fragment_messages) {
             view.findNavController().navigate(R.id.action_messagesFragment_to_profileFragment)
         }
     }
+
 }

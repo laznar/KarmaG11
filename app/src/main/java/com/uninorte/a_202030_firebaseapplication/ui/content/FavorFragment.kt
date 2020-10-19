@@ -96,56 +96,6 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
                 hacerVisible(detallesMultiLine)
             }
         }
-    /*fun getKarmaData() {
-        // [favor.user] tells me who created the current favor, get the username of that user and display it
-        val auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser!!.uid
-        val databaseReference =
-            FirebaseDatabase.getInstance().getReference(usersNode).child(user)
-        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val username = snapshot.child(usernameNode).value.toString()
-                val karma = snapshot.child(karmaNode).value.toString()
-                Log.i("TAG",username.toString())
-                Log.i("TAG",karma.toString())
-                karmaResponse.value = karma
-                puntosTextView.text = karma
-            }
-
-            override fun onCancelled(error: DatabaseError) {}
-        })
-    }
-
-    getKarmaData()*/
-
-
-        /*val radioButtonID: Int = radiogroupButton.checkedRadioButtonId
-        val radioButton: View = radiogroupButton.findViewById(radioButtonID)
-        val idx: Int = radiogroupButton.indexOfChild(radioButton)
-        val r  = radiogroupButton.getChildAt(idx) as RadioGroup
-        val selectedtext: String = r.toString()
-        Log.i(TAG, "onViewCreated: "+selectedtext)*/
-        
-        /*radiogroupButton.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, i ->})
-            if(i == R.id.fotocopiasButton){
-            hacerVisible(codigoTextNumber)
-            hacerInvisible(objetoPlainText)
-            hacerInvisible(cantidadTextNumber)
-            hacerInvisible(editTextTextMultiLine)
-        }
-            else if(i == R.id.comprarkm5Button){
-            hacerInvisible(codigoTextNumber)
-            hacerVisible(objetoPlainText)
-            hacerVisible(cantidadTextNumber)
-            hacerInvisible(editTextTextMultiLine)
-        }
-            else if(i== R.id.domicilioButton){
-            hacerInvisible(codigoTextNumber)
-            hacerInvisible(objetoPlainText)
-            hacerInvisible(cantidadTextNumber)
-            hacerVisible(editTextTextMultiLine)
-        }
-            })*/
 
         homeButton.setOnClickListener {
             view.findNavController().navigate(R.id.action_favorFragment_to_profileFragment)
