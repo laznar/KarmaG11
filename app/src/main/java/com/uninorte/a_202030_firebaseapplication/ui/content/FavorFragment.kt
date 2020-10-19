@@ -113,7 +113,7 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
                         val codigo = codigoTextNumber.text.toString()
                         favorViewModel.createFavor(type,"El código de estudiante es: "+codigo)
                         //profileViewModel.getKarmaData().value
-                        currentKarma = Integer.parseInt(karmapoints.text.toString())-1
+                        currentKarma = Integer.parseInt(karmapoints.text.toString())-2
                         databaseReference.child(karmaNode).setValue(currentKarma)
                         Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
                     }
@@ -122,7 +122,7 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
                         val objeto = objetoPlainText.text.toString()
                         val cantidad = cantidadTextNumber.text.toString()
                         favorViewModel.createFavor(type,"Se solicita comprar "+objeto+" x "+cantidad)
-                        currentKarma = Integer.parseInt(karmapoints.text.toString())-1
+                        currentKarma = Integer.parseInt(karmapoints.text.toString())-2
                         databaseReference.child(karmaNode).setValue(currentKarma)
                         Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
                     }
@@ -130,7 +130,7 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
                         type = domiciliop7
                         val details = detallesMultiLine.text.toString()
                         favorViewModel.createFavor(type,details)
-                        currentKarma = Integer.parseInt(karmapoints.text.toString())-1
+                        currentKarma = Integer.parseInt(karmapoints.text.toString())-2
                         databaseReference.child(karmaNode).setValue(currentKarma)
                         Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
                     }
@@ -138,6 +138,5 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
                 Toast.makeText(this.requireContext(), "Debe de tener 2 o más de karma", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 }
