@@ -35,7 +35,12 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
     private val profileViewModel: ProfileViewModel by activityViewModels()
     private val favorViewModel: FavorViewModel by activityViewModels()
     private var puntos: Int = 0
+    private var currentKarma : Int = 0
     private var type: String = ""
+    private var fotsel : Boolean = false
+    private var compsel : Boolean = false
+    private var domsel : Boolean = false
+
 
     init {
         auth = Firebase.auth
@@ -70,18 +75,21 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
 
         radiogroupButton.setOnCheckedChangeListener { group, checkedID ->
             if(checkedID == R.id.fotocopiasButton){
+                fotsel = true
                 hacerVisible(codigoTextNumber)
                 hacerInvisible(objetoPlainText)
                 hacerInvisible(cantidadTextNumber)
                 hacerInvisible(detallesMultiLine)
             }
             if(checkedID == R.id.comprarkm5Button){
+                compsel = true
                 hacerInvisible(codigoTextNumber)
                 hacerVisible(objetoPlainText)
                 hacerVisible(cantidadTextNumber)
                 hacerInvisible(detallesMultiLine)
             }
             if(checkedID == R.id.domicilioButton){
+                domsel = true
                 hacerInvisible(codigoTextNumber)
                 hacerInvisible(objetoPlainText)
                 hacerInvisible(cantidadTextNumber)
@@ -147,28 +155,35 @@ class FavorFragment : Fragment(R.layout.fragment_favor) {
             profileViewModel.getProfileData()
             puntos = Integer.parseInt(karmapoints.text.toString())
             if(puntos>=2){
-                radiogroupButton.setOnCheckedChangeListener { group, checkedID ->
-                    if(checkedID == R.id.fotocopiasButton){
+                val auth = FirebaseAuth.getInstance()
+                val user = auth.currentUser!!.uid
+                val databaseReference = FirebaseDatabase.getInstance().getReference(usersNode).child(user)
+                    if(fotsel){
                         type = sacarfotocopias
                         val codigo = codigoTextNumber.text.toString()
                         favorViewModel.createFavor(type,"El código de estudiante es: "+codigo)
+                        //profileViewModel.getKarmaData().value
+                        currentKarma = Integer.parseInt(karmapoints.text.toString())-1
+                        databaseReference.child(karmaNode).setValue(currentKarma)
                         Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
                     }
-                    if(checkedID == R.id.comprarkm5Button){
+                    if(compsel){
                         type = comprarkm5
                         val objeto = objetoPlainText.text.toString()
                         val cantidad = cantidadTextNumber.text.toString()
                         favorViewModel.createFavor(type,"Se solicita comprar "+objeto+" x "+cantidad)
+                        currentKarma = Integer.parseInt(karmapoints.text.toString())-1
+                        databaseReference.child(karmaNode).setValue(currentKarma)
                         Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
                     }
-                    if(checkedID == R.id.domicilioButton){
+                    if(domsel){
                         type = domiciliop7
                         val details = detallesMultiLine.text.toString()
                         favorViewModel.createFavor(type,details)
+                        currentKarma = Integer.parseInt(karmapoints.text.toString())-1
+                        databaseReference.child(karmaNode).setValue(currentKarma)
                         Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
                     }
-                    Toast.makeText(this.requireContext(), "Su favor ha sido iniciado", Toast.LENGTH_SHORT).show()
-                }
             }else{
                 Toast.makeText(this.requireContext(), "Debe de tener 2 o más de karma", Toast.LENGTH_SHORT).show()
             }

@@ -50,8 +50,23 @@ class ProfileRepository {
         })
     }
 
+    fun updateKarmaData(){
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser!!.uid
+        var map = mutableMapOf<String,Any>()
+        val databaseReference = FirebaseDatabase.getInstance().getReference(usersNode).child(user)
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val karma = snapshot.child(karmaNode).value.toString()
 
+            }
 
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
 
 
     /*fun observeProfileData() {

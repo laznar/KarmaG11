@@ -8,4 +8,5 @@ fun hacerVisible(v: View){
 
 fun hacerInvisible(v: View){
     v.visibility = View.INVISIBLE
+    v.visibility = View.GONE
 }
